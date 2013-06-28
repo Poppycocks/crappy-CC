@@ -1,0 +1,23 @@
+net = peripheral.wrap("top")
+bridge = peripheral.wrap("left")
+periphs = net.getNamesRemote() --get a table of all the peripheral connected trough the modem on top
+--they're all named bioreactor_number or similar
+for i = 1, #periphs do --wrap all peripherals in the same table
+ periphs[i] = peripheral.wrap(periphs[i])
+end
+
+function getDiversity(p)
+local diversity = 0
+for i=9, p.getSizeInventory()-1 do
+ stack = p.getStackInSlot(i)
+ if stack ~= nil then diversity = diversity + 1 end
+end
+ return diversity
+end
+
+--[[here's the problem, just a silly small thing I wanna do
+The peripherals don't seem to be listened ordered, I want to check out what the order is
+but have no idea what so ever how to get the names back from the wrapped peripherals]]
+for i = 1, #periphs do 
+ print(unpack(periphNames[i]) .. " has a diversity of " .. getDiversity(periphs[i]))
+end
