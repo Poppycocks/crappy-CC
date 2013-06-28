@@ -17,7 +17,11 @@ end
 
 --[[here's the problem, just a silly small thing I wanna do
 The peripherals don't seem to be listened ordered, I want to check out what the order is
-but have no idea what so ever how to get the names back from the wrapped peripherals]]
+but have no idea what so ever how to get the names back from the wrapped peripherals
+
+Oh, I also want to reorder them so that they go from bioreactor_0>15
+
+This will be useful later for when I'm doing the animated GUI]]
 for i = 1, #periphs do 
  print(unpack(periphNames[i]) .. " has a diversity of " .. getDiversity(periphs[i]))
 end
